@@ -1,0 +1,1 @@
+Use any 45 hotel images and provide image name as: 'hotel1.jpg', 'hotel2.jpg',...,'hotel45.jpg'

@@ -1,0 +1,1 @@
+Use any 100 hotel room images and provide image name as: 'hotel_room1.jpg', 'hotel_room2.jpg',...,'hotel_room100.jpg'
