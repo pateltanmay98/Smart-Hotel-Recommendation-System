@@ -1,0 +1,155 @@
+*:focus {
+    outline: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #DDD;
+    font-size: 16px;
+    color: #222;
+    font-family: 'Times New Roman';
+    font-weight: 300;
+}
+
+.msg-alert-success {
+    padding: 20px;
+    background-color: #3bd334;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-left: 433px;
+    width: 461px;
+    height: 20px;
+}
+
+.msg-alert-error {
+    background-color: #f50b0b;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-left: 433px;
+    width: 461px;
+    height: 20px;
+}
+
+.room_not_occupied {
+    position: relative;
+    margin: 2% auto;
+    width: 800px;
+    height: 173px;
+    background: #FFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
+.room_image {
+    position: absolute;
+    margin: 0 5px 0 0;
+    width: 200px;
+    height: 173px;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.room_no {
+    position: absolute;
+    text-align: justify;
+    margin-left: 225px;
+    margin-top: 13px;
+    width: 270px;
+    height: 38px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+}
+
+.room_rent {
+    position: absolute;
+    text-align: justify;
+    margin-left: 505px;
+    margin-top: 13px;
+    width: 270px;
+    height: 38px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+}
+
+.room_category {
+    position: absolute;
+    text-align: justify;
+    margin-left: 225px;
+    margin-top: 63px;
+    width: 550px;
+    height: 38px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+}
+
+.room_nt_occupied {
+    position: absolute;
+    margin-top: 116px;
+    margin-left: 225px;
+    height: 38px;
+    width: 220px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+}
+
+.hotel_name {
+    position: absolute;
+    margin-left: 225px;
+    margin-top: 13px;
+    width: 550px;
+    height: 38px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+}
+
+.room_not_occupied_button {
+    position: absolute;
+    margin-top: 116px;
+    margin-left: 460px;
+    height: 40px;
+    width: 318px;
+    /* In box shadow, third argument is used for blur shadow (1px is same as shadow, 12px is very blured shadow) */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 18px;
+    padding: 8px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.room_not_occupied_button:hover,
+.room_not_occupied_button:focus {
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}
+
+.room_not_occupied_button:active {
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}

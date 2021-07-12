@@ -1,0 +1,18 @@
+{% load static %}
+<link href="{% static 'css/hotel/navbar.css' %}" rel="stylesheet">
+<nav>
+    <nav>
+        <div class="logo">{{ logoname }}</div>
+        <ul>
+            <li><a href="{% url 'hotel_home' %}">Home</a></li>
+            <li>
+                <a href="#">Settings</a>
+                <ul>
+                    <li><a href="{% url 'hotel_add_image' %}">Add Image</a></li>
+                    <li><a href="{% url 'hotel_add_room' %}">Add Room</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'hotel_logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+</nav>

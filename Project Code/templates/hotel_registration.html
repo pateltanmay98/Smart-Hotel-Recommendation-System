@@ -1,0 +1,164 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Hotel Registration</title>
+<!--    <link rel="stylesheet" href="registration.css">-->
+     <link href="{% static 'css/registration/registration.css' %}" rel="stylesheet">
+</head>
+
+<body bgcolor="#E6E6FA">
+    <form action="" class="frm_div" method="POST" name="HotelSignup" onsubmit="return validation()">
+        {% csrf_token %}
+        <div class="div-reg-hotel">
+            <h1>Sign up</h1>
+            <input id="iduser" name="hotelname" style="text-transform:capitalize;" placeholder="Hotel Name" type="text" />
+            <span class="spantag" id="invaliduser"></span>
+            <input autocomplete="off" id="idpassword" name="password1" placeholder="Password" type="password" />
+            <span class="spantag" id="invalidpassword"></span>
+            <input autocomplete="off" id="idconpass" name="password2" placeholder="Retype password" type="password" />
+            <span class="spantag" id="invalidpassword2"></span>
+            <input id="idemails" name="hotelid" placeholder="E-mail" type="email" />
+            <span class="spantag" id="invalidemail"></span>
+            <input id="idmobileNumber" name="hmobno" placeholder="Mobile No." type="text" />
+            <span class="spantag" id="invalidmno"></span>
+            <input id="idaddress" name="hoteladdress" placeholder="Hotel Address" style="text-transform:capitalize;" type="text" />
+            <span class="spantag" id="invalidaddress"></span>
+            <input id="idcity" name="hotelcity" placeholder="Hotel City" style="text-transform:capitalize; width: 132px;" type="text" />
+            <span class="spantag" id="invalidcity"></span>
+            <input id="idstate" name="hotelstate" placeholder="Hotel State" style="text-transform:capitalize; width: 129px; margin-left: 10px;" type="text" />
+            <span class="spantag" id="invalidstate"></span>
+            <input id="idcountry" name="hotelcountry" placeholder="Hotel Country" style="text-transform:capitalize; width: 129px; margin-left: 10px;" type="text" />
+            <span class="spantag" id="invalidcountry"></span>
+            <input name="signup_submit" type="submit" value="Sign me up" />
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        function validation() {
+
+            var user = document.getElementById('iduser').value;
+            var pass = document.getElementById('idpassword').value;
+            var confirmpass = document.getElementById('idconpass').value;
+            var mobileNumber = document.getElementById('idmobileNumber').value;
+            var emails = document.getElementById('idemails').value;
+            var address = document.getElementById('idaddress').value;
+            var city = document.getElementById('idcity').value;
+            var state = document.getElementById('idstate').value;
+            var country = document.getElementById('idcountry').value;
+
+            if (user == "") {
+                document.getElementById('invaliduser').innerHTML = " ** Please fill the hotelname field";
+                return false;
+            }
+            if ((user.length <= 2) || (user.length > 20)) {
+                document.getElementById('invaliduser').innerHTML = " ** Hotelname lenght must be between 2 and 20";
+                return false;
+            }
+            if (!isNaN(user)) {
+                document.getElementById('invaliduser').innerHTML = " ** only characters are allowed";
+                return false;
+            }
+
+            if (pass == "") {
+                document.getElementById('invalidpassword').innerHTML = " ** Please fill the password field";
+                return false;
+            }
+            if ((pass.length <= 5) || (pass.length > 20)) {
+                document.getElementById('invalidpassword').innerHTML = " ** Passwords lenght must be between  5 and 20";
+                return false;
+            }
+
+            if (pass != confirmpass) {
+                document.getElementById('invalidpassword2').innerHTML = " ** Password does not match the confirm password";
+                return false;
+            }
+
+            if (confirmpass == "") {
+                document.getElementById('invalidpassword2').innerHTML = " ** Please fill the confirmpassword field";
+                return false;
+            }
+
+            if (mobileNumber == "") {
+                document.getElementById('invalidmno').innerHTML = " ** Please fill the mobile NUmber field";
+                return false;
+            }
+            if (isNaN(mobileNumber)) {
+                document.getElementById('invalidmno').innerHTML = " ** user must write digits only not characters";
+                return false;
+            }
+            if (mobileNumber.length != 10) {
+                document.getElementById('invalidmno').innerHTML = " ** Mobile Number must be 10 digits only";
+                return false;
+            }
+
+            if (emails == "") {
+                document.getElementById('invalidemail').innerHTML = " ** Please fill the email idx` field";
+                return false;
+            }
+            if (emails.indexOf('@') <= 0) {
+                document.getElementById('invalidemail').innerHTML = " ** @ Invalid Position";
+                return false;
+            }
+            if ((emails.charAt(emails.length - 4) != '.') && (emails.charAt(emails.length - 3) != '.')) {
+                document.getElementById('invalidemail').innerHTML = " ** . Invalid Position";
+                return false;
+            }
+
+            if (address == "") {
+                document.getElementById('invalidaddress').innerHTML = " ** Please fill the address field";
+                return false;
+            }
+            if ((address.length <= 2) || (address.length > 100)) {
+                document.getElementById('invalidaddress').innerHTML = " ** Address lenght must be between 2 and 20";
+                return false;
+            }
+            if (!isNaN(address)) {
+                document.getElementById('invalidaddress').innerHTML = " ** only characters are allowed";
+                return false;
+            }
+
+            if (city == "") {
+                document.getElementById('invalidcity').innerHTML = " ** Please fill the city field";
+                return false;
+            }
+            if ((city.length <= 2) || (city.length > 20)) {
+                document.getElementById('invalidcity').innerHTML = " ** City lenght must be between 2 and 20";
+                return false;
+            }
+            if (!isNaN(city)) {
+                document.getElementById('invalidcity').innerHTML = " ** only characters are allowed";
+                return false;
+            }
+
+            if (state == "") {
+                document.getElementById('invalidstate').innerHTML = " ** Please fill the state field";
+                return false;
+            }
+            if ((state.length <= 2) || (state.length > 20)) {
+                document.getElementById('invalidstate').innerHTML = " ** State lenght must be between 2 and 20";
+                return false;
+            }
+            if (!isNaN(state)) {
+                document.getElementById('invalidstate').innerHTML = " ** only characters are allowed";
+                return false;
+            }
+
+            if (country == "") {
+                document.getElementById('invalidcountry').innerHTML = " ** Please fill the country field";
+                return false;
+            }
+            if ((country.length <= 2) || (country.length > 25)) {
+                document.getElementById('invalidcountry').innerHTML = " ** Country lenght must be between 2 and 20";
+                return false;
+            }
+            if (!isNaN(country)) {
+                document.getElementById('invalidcountry').innerHTML = " ** only characters are allowed";
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+{% extends "hotel_base.html" %}
+{% load static %}
+<body>
+{% block content %}
+{% load mytags %}
+<link href="{% static 'css/hotel/hotel_home.css' %}" rel="stylesheet">
+{% for rooms in todayroomobj %}
+{% csrf_token %}
+<div class="room_occpied">
+    {% get_room_image rooms.roomid as imgobj %}
+    <img class="room_image" src="{{imgobj.roomimg.url}}"/>
+    <div class="room_no">Room No: {% get_room_no rooms.roomid %}</div>
+    <div class="room_rent">Room Rent: {% get_room_rent rooms.roomid %}</div>
+    <div class="room_owner">Room occupied by: {% get_user_name_obj rooms.userid %}</div>
+    <div class="room_occupied_date">Date: {{rooms.checkin}} to {{rooms.checkout}}</div>
+    <div class="room_occupied_contact_no">Contact no: {% get_user_contact_obj rooms.userid %}</div>
+</div>
+{% endfor %}
+{% for rooms in allregistrationsobj %}
+{% csrf_token %}
+<div class="room_occpied">
+    {% get_room_image rooms.roomid as imgobj %}
+    <img class="room_image" src="{{imgobj.roomimg.url}}"/>
+    <div class="room_no">Room No: {% get_room_no rooms.roomid %}</div>
+    <div class="room_rent">Room Rent: {% get_room_rent rooms.roomid %}</div>
+    <div class="room_owner">Room occupied by: {% get_user_name_obj rooms.userid %}</div>
+    <div class="room_occupied_date">Date: {{rooms.checkin}} to {{rooms.checkout}}</div>
+    <div class="room_occupied_contact_no">Contact no: {% get_user_contact_obj rooms.userid %}</div>
+</div>
+{% endfor %}
+{% endblock %}
+</body>

@@ -1,0 +1,99 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <title>Registration</title>
+    <link href="{% static 'css/registration/registration.css' %}" rel="stylesheet">
+</head>
+<body bgcolor="#E6E6FA">
+<form action="" class="frm_div" method="POST" name="user_registration" onsubmit="return validation()">
+    {% csrf_token %}
+    <div class="div-reg-user">
+        <h1>Sign up</h1>
+        <input id="iduser" name="username" style="text-transform:capitalize;" placeholder="Name" type="text"/>
+        <span class="spantag" id="invaliduser"></span>
+        <input autocomplete="off" id="idpassword" name="password1" placeholder="Password" type="password"/>
+        <span class="spantag" id="invalidpassword"></span>
+        <input autocomplete="off" id="idconpass" name="password2" placeholder="Retype password" type="password"/>
+        <span class="spantag" id="invalidpassword2"></span>
+        <input id="idemails" name="userid" placeholder="E-mail" type="email"/>
+        <span class="spantag" id="invalidemail"></span>
+        <input id="idmobileNumber" name="umobno" placeholder="Mobile No." type="text"/>
+        <span class="spantag" id="invalidmno"></span>
+        <input name="signup_submit" type="submit" value="Sign me up"/>
+    </div>
+</form>
+
+<script type="text/javascript">
+
+            function validation(){
+
+                var user = document.getElementById('iduser').value;
+                var pass = document.getElementById('idpassword').value;
+                var confirmpass = document.getElementById('idconpass').value;
+                var mobileNumber = document.getElementById('idmobileNumber').value;
+                var emails = document.getElementById('idemails').value;
+
+                if(user == ""){
+                    document.getElementById('invaliduser').innerHTML =" ** Please fill the username field";
+                    return false;
+                }
+                if((user.length <= 2) || (user.length > 20)) {
+                    document.getElementById('invaliduser').innerHTML =" ** Username lenght must be between 2 and 20";
+                    return false;	
+                }
+                if(!isNaN(user)){
+                    document.getElementById('invaliduser').innerHTML =" ** only characters are allowed";
+                    return false;
+                }
+
+                if(pass == ""){
+                    document.getElementById('invalidpassword').innerHTML =" ** Please fill the password field";
+                    return false;
+                }
+                if((pass.length <= 5) || (pass.length > 20)) {
+                    document.getElementById('invalidpassword').innerHTML =" ** Passwords lenght must be between  5 and 20";
+                    return false;	
+                }
+
+                if(pass!=confirmpass){
+                    document.getElementById('invalidpassword2').innerHTML =" ** Password does not match the confirm password";
+                    return false;
+                }
+
+                if(confirmpass == ""){
+                    document.getElementById('invalidpassword2').innerHTML =" ** Please fill the confirmpassword field";
+                    return false;
+                }
+
+                if(mobileNumber == ""){
+                    document.getElementById('invalidmno').innerHTML =" ** Please fill the mobile NUmber field";
+                    return false;
+                }
+                if(isNaN(mobileNumber)){
+                    document.getElementById('invalidmno').innerHTML =" ** user must write digits only not characters";
+                    return false;
+                }
+                if(mobileNumber.length!=10){
+                    document.getElementById('invalidmno').innerHTML =" ** Mobile Number must be 10 digits only";
+                    return false;
+                }
+
+                if(emails == ""){
+                    document.getElementById('invalidemail').innerHTML =" ** Please fill the email idx` field";
+                    return false;
+                }
+                if(emails.indexOf('@') <= 0 ){
+                    document.getElementById('invalidemail').innerHTML =" ** @ Invalid Position";
+                    return false;
+                }
+
+                if((emails.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3)!='.')){
+                    document.getElementById('invalidemail').innerHTML =" ** . Invalid Position";
+                    return false;
+                }
+            }
+
+</script>
+</body>
+</html>

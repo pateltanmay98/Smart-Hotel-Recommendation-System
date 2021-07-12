@@ -1,0 +1,107 @@
+{% extends "hotel_base.html" %}
+{% load static %}
+<body bgcolor="#E6E6FA">
+{% block content %}
+<link href="{% static 'css/hotel/hotel_add_room.css' %}" rel="stylesheet">
+<form action="" method="POST" enctype="multipart/form-data" onsubmit="return validation()">
+    {% csrf_token %}
+    <div class="addroom">
+        <h1>Add Room</h1>
+        <input id="idroomno" name="roomno" placeholder="Room Number" type="number"/>
+        <span class="spantag" id="invalidroomno"></span>
+        <input id="idroomtype" name="roomtype" placeholder="Room Type" type="text"/>
+        <span class="spantag" id="invalidroomtype"></span>
+        <textarea class="roomdescription" id="idroomdescription" name="roomdescription"
+                  placeholder="Room Description"></textarea>
+        <span class="spantag" id="invalidroomdescription"></span>
+        <input type="number" id="idroombeds" name="roombeds" placeholder="No. of Beds" />
+        <span id="invalidroombeds" class="spantag"></span>
+        <input id="idroomrent" name="roomrent" placeholder="Room Rent" type="number"/>
+        <span class="spantag" id="invalidroomrent"></span>
+        <input name="image" type="file"><br />
+        <input name="signup_submit" type="submit" value="Add Room"/>
+    </div>
+</form>
+{% if messages %} {% for message in messages %}
+<div class="msg-alert-{{ message.tags }}" id="msg">
+    {{ message }}
+</div>
+{% endfor %} {% endif %}
+<script>
+        var message_element = document.getElementById("msg");
+        setTimeout(function () {
+            message_element.style.display = "none";
+        }, 3000);
+
+</script>
+<script type="text/javascript">
+        function validation() {
+
+            var roomno = document.getElementById('idroomno').value;
+            var roomtype = document.getElementById('idroomtype').value;
+            var description = document.getElementById('idroomdescription').value;
+            var roombeds = document.getElementById('idroombeds').value;
+            var roomrent = document.getElementById('idroomrent').value;
+
+            if (roomno == "") {
+                document.getElementById('invalidroomno').innerHTML = " ** Please fill the Room Number field";
+                return false;
+            }
+            if (isNaN(roomno)) {
+                document.getElementById('invalidroomno').innerHTML = " ** user must write digits only not characters";
+                return false;
+            }
+            if ((roomno.length < 1) || (roomno.length > 4)) {
+                document.getElementById('invalidroomno').innerHTML = " ** Room Number range must be in 1 to 4 digits only";
+                return false;
+            }
+
+            if (roomtype == "") {
+                document.getElementById('invalidroomtype').innerHTML = " ** Please fill the room type field";
+                return false;
+            }
+            if ((roomtype.length <= 1) || (roomtype.length > 10)) {
+                document.getElementById('invalidroomtype').innerHTML = " ** Room type lenght must be between 1 and 10";
+                return false;
+            }
+
+            if (description == "") {
+                document.getElementById('invalidroomdescription').innerHTML = " ** Please fill the room type field";
+                return false;
+            }
+            if ((description.length <= 10) || (description.length > 100)) {
+                document.getElementById('invalidroomdescription').innerHTML = " ** Room type lenght must be between 10 and 100";
+                return false;
+            }
+
+            if (roombeds == "") {
+                document.getElementById('invalidroombeds').innerHTML = " ** Please fill the Room Rent field";
+                return false;
+            }
+            if (isNaN(roombeds)) {
+                document.getElementById('invalidroombeds').innerHTML = " ** user must write digits only not characters";
+                return false;
+            }
+            if (roombeds.length < 1) {
+                document.getElementById('invalidroombeds').innerHTML = " ** Room rent range must be start from 1 digit";
+                return false;
+            }
+
+            if (roomrent == "") {
+                document.getElementById('invalidroomrent').innerHTML = " ** Please fill the Room Rent field";
+                return false;
+            }
+            if (isNaN(roomrent)) {
+                document.getElementById('invalidroomrent').innerHTML = " ** user must write digits only not characters";
+                return false;
+            }
+            if (roomrent.length < 1) {
+                document.getElementById('invalidroomrent').innerHTML = " ** Room rent range must be start from 1 digit";
+                return false;
+            }
+
+        }
+
+</script>
+{% endblock %}
+</body>

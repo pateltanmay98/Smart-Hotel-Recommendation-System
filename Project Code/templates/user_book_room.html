@@ -1,0 +1,60 @@
+{% extends "user_base.html" %}
+{% load static %}
+
+<body>
+{% block content %}
+<link href="{% static 'css/user/payment/payment.css' %}" rel="stylesheet">
+<div class="wrapper">
+    <div class="container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input name="roomid" type="hidden" value="{{ roomid }}">
+            <div class="input-form">
+                <text class="checkin-date-text">Check-in Date:</text>
+                <text class="checkin-date-value">{{checkin_strf}}</text>
+                <br/>
+                <input id="checkinvalue" name="checkinvalue" type="hidden" value="{{checkin}}"/>
+                <text class="checkout-date-text">Check-out Date:</text>
+                <text class="checkout-date-value" id="checkoutvalue" name="checkoutvalue">{{checkout_strf}}</text>
+                <br/>
+                <input id="checkoutvalue" name="checkoutvalue" type="hidden" value="{{checkout}}"/>
+                <text class="total-cost-text">Total Cost:</text>
+                <text class="total-cost">{{roomrent}}/-</text>
+                <br/><br/><br/>
+                <div class="section-1">
+                    <div class="items">
+                        <label class="label">card number</label>
+                        <input class="input" data-mask="0000 0000 0000 0000" id="card_number" name="cardnumber"
+                               placeholder="1234 1234 1234 1234" type="text">
+                    </div>
+                </div>
+                <div class="section-2">
+                    <div class="items">
+                        <label class="label">card holder</label>
+                        <input class="input" id="card_name" name="card_name" placeholder="Coding Market" type="text">
+                    </div>
+                </div>
+                <div class="section-3">
+                    <div class="items">
+                        <label class="label">Expire date</label>
+                        <input class="input" data-mask="00 / 00" placeholder="MM / YY" type="text">
+                    </div>
+                    <div class="items">
+                        <div class="cvv">
+                            <label class="label">cvv code</label>
+                            <div class="tooltip">?
+                                <div class="cvv-img"><img alt="" src="{% static 'css/user/payment/cvv.png' %}"></div>
+                            </div>
+                        </div>
+                        <input class="input" data-mask="000" placeholder="000" type="text">
+                    </div>
+                </div>
+            </div>
+            <input class="btn" type="submit" name="submit" value="Submit">
+        </form>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
+    </div>
+</div>
+{% endblock %}
+</body>

@@ -1,0 +1,86 @@
+{% load static %}
+<html>
+
+<head>
+    <title>Login</title>
+    <link href="{% static 'css/registration/registration.css' %}" rel="stylesheet">
+</head>
+
+<body bgcolor="#E6E6FA">
+    <div class="div-login">
+        <form action="" method="POST" onsubmit="return validation()">
+            {% csrf_token %}
+            <h1>Login</h1>
+            <input name="id" placeholder="Email ID" type="text" />
+            <span class="spantag" id="invalidemail"></span>
+            <input name="password" placeholder="Password" type="password" />
+            <span class="spantag" id="invalidpassword"></span>
+            <input name="signup_submit" type="submit" value="Login" />
+        </form>
+        <button class="btn-style" onclick="show()" type="button">Don't Have Account?</button>
+    </div>
+    {% if messages %} {% for message in messages %}
+    <div class="msg-alert-{{ message.tags }}" id="msg">
+        {{ message }}
+    </div>
+    {% endfor %} {% endif %}
+    <div id="divlogreg" style="display: none;">
+        <a href="user_registration/">
+            <button class="btn-style" onclick="user()" style="width: 240px;" type="button">User Registration</button>
+        </a>
+        <a href="hotel_registration/">
+            <button class="btn-style" onclick="hotel()" style="width: 240px;" type="button">Hotel Registration</button>
+        </a>
+    </div>
+    <script>
+        var emails = document.getElementById('idemails').value;
+        var pass = document.getElementById('idpassword').value;
+        if (emails == "") {
+            document.getElementById('invalidemail').innerHTML = " ** Please fill the email idx` field";
+            return false;
+        }
+        if (emails.indexOf('@') <= 0) {
+            document.getElementById('invalidemail').innerHTML = " ** @ Invalid Position";
+            return false;
+        }
+        if ((emails.charAt(emails.length - 4) != '.') && (emails.charAt(emails.length - 3) != '.')) {
+            document.getElementById('invalidemail').innerHTML = " ** . Invalid Position";
+            return false;
+        }
+        if (pass == "") {
+            document.getElementById('invalidpassword').innerHTML = " ** Please fill the password field";
+            return false;
+        }
+        if ((pass.length <= 5) || (pass.length > 20)) {
+            document.getElementById('invalidpassword').innerHTML = " ** Passwords lenght must be between  5 and 20";
+            return false;
+        }
+    </script>
+    <script>
+        function show() {
+            var x = document.getElementById("divlogreg");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+
+        function user() {
+            window.location = "HotelSignup.html";
+        }
+
+        function hotel() {
+            window.location = "UserSignup.html";
+        }
+    </script>
+    <script>
+        var message_element = document.getElementById("msg");
+        setTimeout(function () {
+            message_element.style.display = "none";
+        }, 3000);
+    </script>
+
+</body>
+
+</html>

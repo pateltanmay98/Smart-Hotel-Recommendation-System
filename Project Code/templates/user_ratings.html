@@ -1,0 +1,129 @@
+{% extends "user_base.html" %} {% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+</head>
+
+<body>
+{% block content %} {% load mytags %}
+<link href="{% static 'css/user/ratings/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/user/ratings/jquery.rateyo.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/user/ratings/ratings.css' %}" rel="stylesheet">
+<div class="form-div">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="rating-text-style">
+                <text>Service Rating</text>
+            </div>
+            <div class="rateyo" data-rateyo-num-stars="5" data-rateyo-rating={{servrat}} data-rateyo-score="5" id="rating1"
+                 style="margin-left: 70px; margin-top:5px;">
+            </div>
+            <input class="result1" id="result1" name="result1" type="hidden">
+        </div>
+        <div class="row">
+            <div class="rating-text-style" style="float:left; margin-top: 10px; margin-left: 0px;">
+                <text>Cleanliness Rating</text>
+            </div>
+            <div class="rateyo" data-rateyo-num-stars="5" data-rateyo-rating={{clearat}} data-rateyo-score="5"
+                 id="rating2" style="margin-left: 21px; margin-top:5px;">
+            </div>
+            <input class="result2" id="result2" name="result2" type="hidden">
+        </div>
+        <div class="row">
+            <div class="rating-text-style" style="float:left; margin-top: 10px; margin-left: 0px;">
+                <text>Location Rating</text>
+            </div>
+            <div class="rateyo" data-rateyo-num-stars="5" data-rateyo-rating={{locarat}} data-rateyo-score="5"
+                 id="rating3"
+                 style="margin-left: 55px; margin-top:5px;">
+            </div>
+            <input class="result3" id="result3" name="result3" type="hidden">
+        </div>
+        <div class="row">
+            <div class="rating-text-style" style="float:left; margin-top: 10px; margin-left: 0px;">
+                <text>SleepQuality Rating</text>
+            </div>
+            <div class="rateyo" data-rateyo-num-stars="5" data-rateyo-rating={{sleqrat}} data-rateyo-score="5"
+                 id="rating4"
+                 style="margin-left: 10px; margin-top:5px;">
+            </div>
+            <input class="result4" id="result4" name="result4" type="hidden">
+        </div>
+        <div class="row">
+            <div class="rating-text-style" style="float:left; margin-top: 10px; margin-left: 0px;">
+                <text>Rooms Rating</text>
+            </div>
+            <div class="rateyo" data-rateyo-num-stars="5" data-rateyo-rating={{roomrat}} data-rateyo-score="5"
+                 id="rating5"
+                 style="margin-left: 85px; margin-top:5px;">
+            </div>
+            <input class="result5" id="result5" name="result5" type="hidden">
+        </div>
+        <input name="rating" type="hidden">
+        <div><input name="submit" type="submit" value="submit"></div>
+    </form>
+</div>
+{% if messages %} {% for message in messages %}
+    <div class="msg-alert-{{ message.tags }}" id="msg">
+        {{ message }}
+    </div>
+{% endfor %} {% endif %}
+<script src="{% static 'css/user/ratings/jquery.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'css/user/ratings/jquery.rateyo.js' %}" type="text/javascript"></script>
+<script>
+        $(function() {
+            $("#rating1").rateYo().on("rateyo.change", function(e, data) {
+                var rating = data.rating;
+                $(this).parent().find('.score').text('score :' + $(this).attr('data-rateyo-score'));
+                $(this).parent().find('.result1').text('rating :' + rating);
+                $(this).parent().find('input[name=rating]').val(rating);
+                document.getElementById('result1').value = rating;
+            });
+        });
+        $(function() {
+            $("#rating2").rateYo().on("rateyo.change", function(e, data) {
+                var rating = data.rating;
+                $(this).parent().find('.score').text('score :' + $(this).attr('data-rateyo-score'));
+                $(this).parent().find('.result2').text('rating :' + rating);
+                $(this).parent().find('input[name=rating2]').val(rating);
+                document.getElementById('result2').value = rating;
+            });
+        });
+        $(function() {
+            $("#rating3").rateYo().on("rateyo.change", function(e, data) {
+                var rating = data.rating;
+                $(this).parent().find('.score').text('score :' + $(this).attr('data-rateyo-score'));
+                $(this).parent().find('.result3').text('rating :' + rating);
+                $(this).parent().find('input[name=rating]').val(rating);
+                document.getElementById('result3').value = rating;
+            });
+        });
+        $(function() {
+            $("#rating4").rateYo().on("rateyo.change", function(e, data) {
+                var rating = data.rating;
+                $(this).parent().find('.score').text('score :' + $(this).attr('data-rateyo-score'));
+                $(this).parent().find('.result4').text('rating :' + rating);
+                $(this).parent().find('input[name=rating]').val(rating);
+                document.getElementById('result4').value = rating;
+            });
+        });
+        $(function() {
+            $("#rating5").rateYo().on("rateyo.change", function(e, data) {
+                var rating = data.rating;
+                $(this).parent().find('.score').text('score :' + $(this).attr('data-rateyo-score'));
+                $(this).parent().find('.result5').text('rating :' + rating);
+                $(this).parent().find('input[name=rating]').val(rating);
+                document.getElementById('result5').value = rating;
+            });
+        });
+</script>
+<script>
+        var message_element = document.getElementById("msg");
+        setTimeout(function () {
+            message_element.style.display = "none";
+        }, 3000);
+</script>
+{% endblock %}
+</body>

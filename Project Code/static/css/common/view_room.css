@@ -1,0 +1,271 @@
+.body {
+    margin: 0;
+    padding: 0;
+    background: #DDD;
+    font-size: 16px;
+    color: #222;
+    font-family: 'Times New Roman';
+    font-weight: 300;
+}
+
+.back {
+    height: 50px;
+    width: 50px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.room-main {
+    position: relative;
+    margin: 2% auto;
+    width: 1043px;
+    height: 390px;
+    background: #FFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
+.room-image {
+    position: absolute;
+    height: 100%;
+    width: 290px;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.room-no {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 300px;
+    width: 357px;
+    height: 38px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+}
+
+.room-type {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 667px;
+    width: 357px;
+    height: 38px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+}
+
+.room-info {
+    position: absolute;
+    margin-top: 62px;
+    margin-left: 300px;
+    width: 723px;
+    height: 120px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+    overflow: scroll;
+}
+
+.room-occupied {
+    position: absolute;
+    margin-top: 196px;
+    margin-left: 300px;
+    width: 723px;
+    height: 38px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+}
+
+.room-rent {
+    position: absolute;
+    margin-top: 248px;
+    margin-left: 300px;
+    height: 38px;
+    width: 356px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+}
+
+.room-beds {
+    position: absolute;
+    margin-top: 248px;
+    margin-left: 666px;
+    height: 38px;
+    width: 356px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+}
+
+
+/* .room-date {
+    position: absolute;
+    margin-top: 248px;
+    margin-left: 808px;
+    height: 38px;
+    width: 211px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+} */
+
+.room-green-btn {
+    position: absolute;
+    margin-top: 316px;
+    margin-left: 300px;
+    height: 38px;
+    width: 723px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+}
+
+.room-btn-style {
+    height: 38px;
+    width: 723px;
+    background: #16a085;
+    border: none;
+    text-align: center;
+    color: #FFF;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    transition: 0.1s ease;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.room-btn-style:hover,
+.room-btn-style:focus {
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}
+
+.room-btn-style:active {
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}
+
+.room-delete-btn {
+    position: absolute;
+    margin-top: 316px;
+    margin-left: 300px;
+    height: 38px;
+    width: 723px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+}
+
+.room-delbtn-style {
+    height: 38px;
+    width: 723px;
+    background: #d52600;
+    border: none;
+    text-align: center;
+    color: #FFF;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    transition: 0.1s ease;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.room-delbtn-style:hover,
+.room-delbtn-style:focus {
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}
+
+.room-delbtn-style:active {
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}
+
+.user-book-room {
+    position: relative;
+    margin: 2% auto;
+    width: 330px;
+    height: 173px;
+    background: #FFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
+.checkin-date-text {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 14px;
+    width: 250px;
+    height: 38px;
+    border: none;
+    font-family: 'Times New Roman';
+    font-weight: 400;
+    font-size: 19px;
+    transition: 0.2s ease;
+}
+
+.checkout-date-text {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 60px;
+    width: 250px;
+    height: 38px;
+    border: none;
+    font-family: 'Times New Roman';
+    font-weight: 400;
+    font-size: 19px;
+    transition: 0.2s ease;
+}
+
+.book-room {
+    position: absolute;
+    margin-top: 116px;
+    margin-left: 10px;
+    height: 40px;
+    width: 305px;
+    /* In box shadow,
+    third argument is used for blur shadow (1px is same as shadow, 12px is very blured shadow) box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); */
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 18px;
+    background-color: black;
+    color: white;
+}
+
+.book-room:hover,
+.book-room:focus {
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}
+
+.book-room:active {
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}

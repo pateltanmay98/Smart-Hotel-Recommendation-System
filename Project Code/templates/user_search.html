@@ -1,0 +1,51 @@
+{% extends "user_base.html" %}
+{% load static %}
+
+<body>
+    {% block content %}
+    <link href="{% static 'css/user/hotel_search.css' %}" rel="stylesheet">
+    {% load mytags %}
+    <div class="div-search-box-form">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="userid" , value="{{userid}}"><br />
+            <div class="input-city-div">
+                <text class="find-city-text">City Name</text><br />
+                <input class="find-city-input" list="autocomplete" name="find" placeholder="Find here.." />
+                <datalist id="autocomplete">
+                    {% for city in cityobj %}
+                    <option>{{city.cityname}}</option>
+                    {% endfor %}
+                </datalist>
+            </div>
+            <div class="input-checkin-div">
+                <text class="checkin-text">Check-in Date</text><br />
+                <input class="checkin-input" type="date" id="datepicker1" name="datepicker1">
+            </div>
+            <div class="input-checkout-div">
+                <text class="checkout-text">Check-out Date</text><br />
+                <input class="checkout-input" type="date" id="datepicker2" name="datepicker2">
+            </div>
+            <div class="input-submit-div">
+                <input type="submit" name="submit" value="Search Hotel" />
+            </div>
+        </form>
+        <script type="text/javascript">
+            $('#datepicker1').datepicker({
+                weekStart: 1,
+                daysOfWeekHighlighted: "6,0",
+                autoclose: true,
+                todayHighlight: true,
+            });
+            $('#datepicker1').datepicker("setDate", new Date());
+            $('#datepicker2').datepicker({
+                weekStart: 1,
+                daysOfWeekHighlighted: "6,0",
+                autoclose: true,
+                todayHighlight: true,
+            });
+            $('#datepicker2').datepicker("setDate", new Date());
+        </script>
+    </div>
+    {% endblock %}
+</body>

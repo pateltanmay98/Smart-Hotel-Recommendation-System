@@ -1,0 +1,137 @@
+*:focus {
+    outline: none;
+}
+
+.body {
+    margin: 0;
+    padding: 0;
+    background: #DDD;
+    font-size: 16px;
+    color: #222;
+    font-family: 'Times New Roman';
+    font-weight: 300;
+}
+
+.user-book-room {
+    position: relative;
+    margin: 2% auto;
+    width: 540px;
+    height: 200px;
+    background: #FFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
+.room-image {
+    position: absolute;
+    margin: 0 5px 0 0;
+    width: 200px;
+    height: 100%;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.checkin-date-text {
+    position: absolute;
+    margin-left: 220px;
+    margin-top: 14px;
+    width: 250px;
+    height: 38px;
+    border: none;
+    font-family: 'Times New Roman';
+    font-weight: 400;
+    font-size: 19px;
+    transition: 0.2s ease;
+}
+
+.checkin-date-value {
+    position: absolute;
+    margin-top:15px;
+    margin-left: 380px;
+    text-align: center;
+    font-family: 'Times New Roman';
+    font-weight: 400;
+    font-size: 19px;
+    transition: 0.2s ease;
+}
+
+.checkout-date-text {
+    position: absolute;
+    margin-left: 220px;
+    margin-top: 55px;
+    width: 250px;
+    height: 38px;
+    border: none;
+    font-family: 'Times New Roman';
+    font-weight: 400;
+    font-size: 19px;
+    transition: 0.2s ease;
+}
+
+.checkout-date-value {
+    position: absolute;
+    margin-top: 55px;
+    margin-left: 380px;
+    text-align: center;
+    font-family: 'Times New Roman';
+    font-weight: 400;
+    font-size: 19px;
+    transition: 0.2s ease;
+}
+
+.total-cost-text {
+    position: absolute;
+    margin-left: 220px;
+    margin-top: 98px;
+    width: 250px;
+    height: 38px;
+    border: none;
+    font-family: 'Times New Roman';
+    font-weight: 400;
+    font-size: 19px;
+    transition: 0.2s ease;
+}
+
+.total-cost {
+    position: absolute;
+    box-sizing: border-box;
+    margin-top: 98px;
+    margin-left: 380px;
+    width: 250px;
+    height: 38px;
+    border: none;
+    font-family: 'Times New Roman';
+    font-weight: 400;
+    font-size: 19px;
+    transition: 0.2s ease;
+}
+
+.book-room {
+    position: absolute;
+    margin-top: 145px;
+    margin-left: 220px;
+    height: 40px;
+    width: 220px;
+    /* In box shadow, third argument is used for blur shadow (1px is same as shadow, 12px is very blured shadow) */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 18px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.book-room:hover,
+.book-room:focus {
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}
+
+.book-room:active {
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
+}

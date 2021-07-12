@@ -1,0 +1,31 @@
+{% extends "user_base.html" %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+{% block content %}
+{% load mytags %}
+<link href="{% static 'css/user/hotel_list.css' %}" rel="stylesheet">
+{% for hotel in hotelobj %}
+<div class="hotel_list">
+    {% csrf_token %}
+    <img class="room_image" src="{% static 'images/hotel_room.jpg' %}"/>
+    <div class="hotel_name">Hotel Name: {{hotel.hotelname}}</div>
+    <div class="hotel_address">Hotel Address: {% get_hotel_address hotel.hotelid %}, {% get_hotel_city hotel.hotelid %}, {% get_hotel_state hotel.hotelid %}</div>
+    <div class="room_cost">Room cost: {% get_hotel_min_rent hotel.hotelid %} to {% get_hotel_max_rent hotel.hotelid %}
+    </div>
+    <a href="{% url 'user_room_list' hotel.hotelid %}">
+        <button class="hotel_list_button" name="submit">More Detail</button>
+    </a>
+</div>
+{% endfor %}
+<script>
+        var message_element = document.getElementById("msg");
+        setTimeout(function () {
+            message_element.style.display = "none";
+        }, 3000);
+</script>
+{% endblock %}
+</body>

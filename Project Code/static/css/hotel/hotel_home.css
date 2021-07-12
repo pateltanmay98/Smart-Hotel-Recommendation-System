@@ -1,0 +1,130 @@
+*:focus {
+    outline: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #DDD;
+    font-size: 16px;
+    color: #222;
+    font-family: 'Times New Roman';
+    font-weight: 300;
+}
+
+.room_occpied {
+    position: relative;
+    margin: 2% auto;
+    width: 800px;
+    height: 173px;
+    background: #FFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
+.room_image {
+    position: absolute;
+    margin: 0 5px 0 0;
+    width: 200px;
+    height: 173px;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.room_no {
+    position: absolute;
+    text-align: justify;
+    margin-left: 225px;
+    margin-top: 13px;
+    width: 270px;
+    height: 38px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+}
+
+.room_rent {
+    position: absolute;
+    text-align: justify;
+    margin-left: 505px;
+    margin-top: 13px;
+    width: 280px;
+    height: 38px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+}
+
+.room_owner {
+    position: absolute;
+    text-align: justify;
+    margin-left: 225px;
+    margin-top: 63px;
+    width: 560px;
+    height: 38px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+}
+
+.room_occupied_date {
+    position: absolute;
+    margin-top: 116px;
+    margin-left: 225px;
+    height: 38px;
+    width: 332px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+}
+
+.room_occupied_contact_no {
+    position: absolute;
+    margin-top: 116px;
+    margin-left: 566px;
+    height: 38px;
+    width: 220px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+}
+
+.room_nt_occupied {
+    position: absolute;
+    margin-top: 116px;
+    margin-left: 225px;
+    height: 38px;
+    width: 220px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    font-family: 'Times New Roman';
+    font-size: 19px;
+    padding: 8px;
+}
+
+#divmessage {
+    margin-top: 40px;
+    margin-left: 433px;
+    width: 500px;
+    height: 50px;
+    background-color: #3bd334;
+}
+
+.spantag {
+    font-weight: bold;
+    color: red;
+    font-family: 'Times New Roman';
+    font-size: 15px;
+    margin-top: 2px;
+}

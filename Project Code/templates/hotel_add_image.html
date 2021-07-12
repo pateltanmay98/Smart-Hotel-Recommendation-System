@@ -1,0 +1,32 @@
+{% extends "hotel_base.html" %}
+{% load static %}
+
+<body bgcolor="#E6E6FA">
+{% block content %}
+<link href="{% static 'css/hotel/hotel_add_image.css' %}" rel="stylesheet">
+{% if imageexist == "YES" %}
+<form action="" enctype="multipart/form-data" method="POST">
+    <div class="addimage">
+        <center><img height="200px" src="{{image.url}}" width="200px"></center>
+        <form action="" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            <center><input style="margin-top:15px; margin-left:50px;" name="image" type="file"><br/></center>
+            <center><input name="signup_submit" type="submit" value="Update Image"/></center>
+        </form>
+    </div>
+</form>
+{% endif %}
+{% if imageexist == "NO" %}
+<form action="" enctype="multipart/form-data" method="POST">
+    <div class="addimage">
+        <h1>Add Image</h1>
+        <form action="" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            <center><input style="margin-left:50px;" name="image" type="file"><br/></center>
+            <center><input name="signup_submit" type="submit" value="Add Image"/></center>
+        </form>
+    </div>
+</form>
+{% endif %}
+{% endblock %}
+</body>

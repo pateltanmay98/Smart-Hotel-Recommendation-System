@@ -1,0 +1,51 @@
+{% load static %}
+<html>
+
+<head>
+    <title>View Hotel Room</title>
+    <!--    <link href="view_room.css" rel="stylesheet" type="text/css">-->
+    <link href="{% static 'css/common/view_room.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/common/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/common/bootstrap-datepicker.min.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<body class="body">
+{% csrf_token %}
+{% load mytags %}
+<a class="back" href="{{request.META.HTTP_REFERER}}">Go back</a>
+{% if room_description_type == "userRoomBooking" %}
+<div class="room-main">
+    <div>
+        <img class="room-image" src="{{imageobj.roomimg.url}}"/>
+    </div>
+    <div class="room-no">
+        Room No: {{ roomno }}
+    </div>
+    <div class="room-info">
+        Room Description: {{ roomdescription }}
+    </div>
+    <div class="room-type">
+        Room Type: {{ roomtype }}
+    </div>
+    <div class="room-occupied">
+        Last Occupied Date: {% date_from roomid %} to {% date_to roomid %}
+    </div>
+    <div class="room-rent">
+        Room Rent: {{ roomrent }}
+    </div>
+    <div class="room-beds">
+        No. of Beds: {{ roombeds }}
+    </div>
+    <a href="{% url 'user_book_room' roomid checkin checkout %}">
+        <div class="room-green-btn">
+            <button class="room-btn-style">
+                Book Room
+            </button>
+        </div>
+    </a>
+</div>
+{% endif %}
+
+</body>
+
+</html>

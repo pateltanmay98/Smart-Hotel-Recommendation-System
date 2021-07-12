@@ -1,0 +1,71 @@
+{% extends "user_base.html" %}
+{% load static %}
+<body bgcolor="#E6E6FA">
+{% block content %}
+{% load mytags %}
+<link href="{% static 'css/user/room_list.css' %}" rel="stylesheet">
+<a class="back" href="{{request.META.HTTP_REFERER}}">Go back</a>
+{% if messages %} {% for message in messages %}
+<div class="msg-alert-{{message.tags}}" id="msg">
+    {{ message }}
+</div>
+{% endfor %} {% endif %}
+{% if historyFor == "cancelrooms" %}
+{% for rooms in reserverdRooms %}
+{% csrf_token %}
+<div class="room_not_occupied">
+    {% get_room_image rooms.roomid as imgobj %}
+    <img class="room_image" src="{{imgobj.roomimg.url}}"/>
+    <div class="hotel_name">Hotel Name: {% get_hotel_name rooms.roomid %}</div>
+    <div class="room_category">Reservation From: {{ rooms.checkin }} to {{ rooms.checkout }}</div>
+    <div class="room_nt_occupied">Room No: {% get_room_no rooms.roomid %}</div>
+    <a href="{% url 'user_cancel_room' rooms.roomid rooms.checkin rooms.checkout  %}">
+        <button class="room_not_occupied_button" name="submit">Cancel Room?</button>
+    </a>
+</div>
+{% endfor %}
+{% if room_list %}
+{% for rooms in room_list %}
+{% csrf_token %}
+<div class="room_not_occupied">
+    {% get_room_image rooms.roomid as imgobj %}
+    <img class="room_image" src="{{imgobj.roomimg.url}}"/>
+    <div class="hotel_name">Hotel Name: {% get_hotel_name rooms.roomid %}</div>
+    <div class="room_category">Reservation From: {{ rooms.checkin }} to {{ rooms.checkout }}</div>
+    <div class="room_nt_occupied">Room No: {% get_room_no rooms.roomid %}</div>
+    <a href="{% url 'user_rating' rooms.roomid %}">
+        <button class="room_not_occupied_button" name="submit">Please Rate Us</button>
+    </a>
+</div>
+{% endfor %}
+{% else %}
+<h3 align="center">No data found</h3>
+{% endif %}
+{% endif %}
+{% if historyFor == "showrooms" %}
+{% if room_list %}
+{% for rooms in room_list %}
+{% csrf_token %}
+<div class="room_not_occupied">
+    {% get_hotel_image2 rooms.roomid as imgobj3 %}
+    <img class="room_image" src="{{imgobj3.hotelimg.url}}"/>
+    <div class="hotel_name">Hotel Name: {% get_hotel_name rooms.roomid %}</div>
+    <div class="room_category">Reservation From: {{ rooms.checkin }} to {{ rooms.checkout }}</div>
+    <div class="room_nt_occupied">Room No: {% get_room_no rooms.roomid %}</div>
+    <a href="{% url 'user_rating' rooms.roomid %}">
+        <button class="room_not_occupied_button" name="submit">Please Rate Us</button>
+    </a>
+</div>
+{% endfor %}
+{% else %}
+<h3 align="center">No data found</h3>
+{% endif %}
+{% endif %}
+<script>
+        var message_element = document.getElementById("msg");
+        setTimeout(function () {
+            message_element.style.display = "none";
+        }, 4000);
+</script>
+{% endblock %}
+</body>

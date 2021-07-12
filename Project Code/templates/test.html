@@ -1,0 +1,22 @@
+{% extends "hotel_base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+{% block content %}
+{% load mytags %}
+<link href="{% static 'css/hotel/hotel_home.css' %}" rel="stylesheet">
+<h3>Hello World</h3>
+{% endblock %}
+</body>
+</html>
+
+<div class="room_no">Room No: {% get_room_no rooms.roomid %}</div>
+    <div class="room_rent">Room Rent: {% get_room_rent rooms.roomid %}</div>
+    <div class="room_category">Room occupied by: {% get_user_name rooms.userid %}</div>
+    <div class="room_occupied_date">Date: {% date_from rooms.checkin %} to {% date_to rooms.checkout %}</div>
+    <div class="room_occupied_contact_no">Contact no: {% get_user_contact rooms.userid %}</div>

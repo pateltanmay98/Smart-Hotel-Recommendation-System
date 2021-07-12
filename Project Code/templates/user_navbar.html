@@ -1,0 +1,12 @@
+{% load static %}
+<link href="{% static 'css/user/navbar.css' %}" rel="stylesheet">
+<nav>
+    <nav>
+        <div class="logo">{{ logoname }}</div>
+        <ul>
+            <li><a href="{% url 'user_home' %}">Home</a></li>
+            <li><a href="{% url 'user_history' %}">Log</a></li>
+            <li><a href="{% url 'user_logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+</nav>

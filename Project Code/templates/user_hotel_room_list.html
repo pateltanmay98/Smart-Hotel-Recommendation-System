@@ -1,0 +1,49 @@
+{% extends "user_base.html" %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Room List</title>
+</head>
+<body bgcolor="#E6E6FA">
+{% block content %}
+{% load mytags %}
+<link href="{% static 'css/user/room_list.css' %}" rel="stylesheet">
+<a class="back" href="{{request.META.HTTP_REFERER}}">Go back</a>
+<!--From user view -> User Room List -->
+{% if room_list %}
+{% for rooms in availableRoomObj %}
+{% csrf_token %}
+<div class="room_not_occupied">
+    {% get_room_image rooms.roomid as imgobj %}
+    <img class="room_image" src="{{imgobj.roomimg.url}}"/>
+    <div class="room_no">Room No: {{rooms.roomno}}</div>
+    <div class="room_rent">Room Rent: {% get_room_rent rooms.roomid %}</div>
+    <div class="room_category">Room Category: {% get_room_type rooms.roomid %}</div>
+    <div class="room_nt_occupied">Room available</div>
+    <a href="{% url 'user_view_room' rooms.roomid checkin checkout %}">
+        <button class="room_not_occupied_button" name="submit">More Detail</button>
+    </a>
+</div>
+{% endfor %}
+{% for rooms in bookedRoomList %}
+{% csrf_token %}
+<div class="room_not_occupied">
+    {% get_room_image rooms.roomid as imgobj %}
+    <img class="room_image" src="{{imgobj.roomimg.url}}"/>
+    <div class="room_no">Room No: {{rooms.roomno}}</div>
+    <div class="room_rent">Room Rent: {% get_room_rent rooms.roomid %}</div>
+    <div class="room_category">Room Category: {% get_room_type rooms.roomid %}</div>
+    <div class="room_nt_occupied">Room occupied</div>
+    <a href="{% url 'user_view_room' rooms.roomid checkin checkout %}">
+        <button class="room_not_occupied_button" name="submit">More Detail</button>
+    </a>
+</div>
+{% endfor %}
+{% else %}
+<h3 align="center">No data found</h3>
+{% endif %}
+{% endblock %}
+</body>
+</html>
